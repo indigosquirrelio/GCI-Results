@@ -2,6 +2,7 @@
 import os
 import webapp2
 import jinja2
+import datetime
 
 from google.appengine.ext import db
 
@@ -49,7 +50,8 @@ class Main(BaseHandler):
             for i in range(len(sorted_keys)):
                 sorted_keys[i].append((i+1))
             error = "none"
-            self.render('front.html', keys = sorted_keys, text = text, values = sorted_parent, error = error)
+            time = datetime.datetime.now()
+            self.render('front.html', keys = sorted_keys, text = text, values = sorted_parent, error = error, time = time)
         else:
             text = self.request.get("text")
             error = "error"

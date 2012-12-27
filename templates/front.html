@@ -6,7 +6,7 @@
     <title>Fedora GCI Results</title>
   </head>
   <body>
-    <h1 style = "text-align: center;">Fedora GCI Results</h1><br><br>
+    <h1 style = "text-align: center;">FEDORA GCI STAT BOARD</h1><br><br>
     <div style = "text-align:center;">
     <h4>Copy and paste the csv file here:</h4>
     <form method="post">
@@ -15,6 +15,10 @@
       <input type="submit" style = "width: 400px;">
     </form>
     </div>
+    {% if error == "none" %}
+    <br>
+    <h4 style = "text-align:center;">Results as of {{time.strftime("%Y-%m-%d %H:%M:%S")}} UTC</h4>
+    {% endif %}
     <table border="1" class = "well" style = "margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 20px;">
         <tr>
           <th>Rank</th>
@@ -33,7 +37,7 @@
           {% endfor %}
         {% endif %}
         {% if error == "error" %}
-          <script type = "text/javascript">alert("Please copy and paste the correct CSV file.");</script>
+          <script type = "text/javascript">alert("Please copy and paste the Closed Tasks list's CSV file.");</script>
         {% endif %}
     </table>
   </body>
