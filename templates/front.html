@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "../static/fedora-bootstrap.css">
+    <title>Fedora GCI Results</title>
+  </head>
+  <body>
+    <h1 style = "text-align: center;">Fedora GCI Results</h1><br><br>
+    <div style = "text-align:center;">
+    <h4>Copy and paste the csv file here:</h4>
+    <form method="post">
+      <textarea name="text" style="height: 100px; width: 400px;">{{text}}</textarea>
+      <br>
+      <input type="submit" style = "width: 400px;">
+    </form>
+    </div>
+    <table border="1" class = "well" style = "margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 20px;">
+        <tr>
+          <th>Rank</th>
+          <th>Student</th>
+          <th># of Completed Tasks</th>
+          <th>Task IDs</th>
+        </tr>
+        {% if error == "none" %}
+          {% for content in keys %}
+            <tr>
+              <td style = "text-align:center;">{{content[2]}}</td>
+              <td style = "text-align:center;">{{content[0]}}</td>
+              <td style = "text-align:center;">{{content[1]}}</td>
+              <td>{% for id in values %}{% if id[2] == content[0] %}{{id[0]}} {% endif %}{% endfor %}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+        {% if error == "error" %}
+          <script type = "text/javascript">alert("Please copy and paste the correct CSV file.");</script>
+        {% endif %}
+    </table>
+  </body>
+
+</html>
