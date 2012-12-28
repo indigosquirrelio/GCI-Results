@@ -32,7 +32,7 @@
               <td style = "text-align:center;">{{content[2]}}</td>
               <td style = "text-align:center;">{{content[0]}}</td>
               <td style = "text-align:center;">{{content[1]}}</td>
-              <td>{% for id in values %}{% if id[2] == content[0] %}{{id[0]}} {% endif %}{% endfor %}</td>
+              <td>{% for id in values %}{% if id[2] == content[0] %}<a href = "http://www.google-melange.com/gci/task/view/google/gci2012/{{id[0]}}" target = "_blank">{{id[0]}}</a> {% endif %}{% endfor %}</td>
             </tr>
           {% endfor %}
         {% endif %}
